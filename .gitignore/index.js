@@ -8,29 +8,20 @@ Client.on('ready', function() {
     console.log("Connected");
 });
 
-client.on('message', async message => { 
-
-    if(message.content === "yo"){
-        message.reply("Salut");
-        console.log('Le bot dit bonjour');
-
+Client.on('message', message => {
+    if (message.content === prefix + "help"){
+        message.channel.sendMessage("Liste des commandes: \n - &help");
     }
     
-    if(message.content === prefix + "help") {
-      var aide_embed = new Discord.RichEmbed()
-      .setColor('#ff0033')
-      .setTitle(`*Sharingan - Page d'aide !!!*`)
-      .setDescription(`Description`)
-      .setThumbnail('https://i.imgur.com/57KGUTQ.png')
-      .addField(":tools: Modération", "`mod`,`kick`,`ban`,`mute`,`unmute`,`clear`,")
-      .addField(":tada: Fun", "Fais `fun` pour voir mes commandes d'animation !")
-      .addField(":headphones: Musique", "`play`, `pause`, `skip`, `stop`")
-      .addField(":movie_camera: Twitch", "Fais `twit` pour voir mes commandes de steam !")
-      .setFooter("Sharingan V2.00.0")
-      .setTimestamp()
-      message.channel.send(aide_embed);
+    if (message.content === "salut"){
+        message.reply("Wesh ma couille)");
+        console.log("Commande Salut");
     }
-    
+
+    if (message.content === "sava"){
+        message.reply("Tranquille et toi mon bro)");
+        console.log("Le bot répond a  ta question");
+    }
 });
         
 Client.login(process.env.BOT_TOKEN);
